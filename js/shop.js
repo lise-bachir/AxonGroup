@@ -27,12 +27,19 @@
     `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ICONS.desktop}</svg>`;
   const catOf = (id) => CATS.find((c) => c.id === id);
   const byId = (id) => PRODUCTS.find((p) => p.id === id);
+  const imgOf = (p) => p.img || (typeof IMAGE_IDS !== "undefined" && IMAGE_IDS.has(p.id) ? `assets/produits/${p.id}.webp` : "");
+  const optsHtml = (p, cls = "opts") => p.opts
+    ? `<div class="${cls}">${Object.entries(p.opts).map(([label, values]) =>
+        `<label>${esc(label)}<select data-opt="${esc(label)}">${values.map((v) => `<option>${esc(v)}</option>`).join("")}</select></label>`).join("")}</div>`
+    : "";
+  const readOpts = (root) => { const o = {}; root.querySelectorAll("[data-opt]").forEach((el) => { o[el.dataset.opt] = el.value; }); return o; };
+  const optsText = (o) => Object.entries(o || {}).map(([k, v]) => `${k} : ${v}`).join(" · ");
 
   /* ---------- Panier ---------- */
   const load = () => {
     try {
       const v = JSON.parse(localStorage.getItem(KEY));
-      return Array.isArray(v) ? v.filter((i) => byId(i.id)) : [];
+      return Array.isArray(v) ? v.filter((i) => byId(i.id)).map((i) => ({ ...i, opts: i.opts || {} })) : [];
     } catch { return []; }
   };
   let cart = load();
@@ -40,10 +47,11 @@
   const count = () => cart.reduce((n, i) => n + i.qty, 0);
   const defaultMode = (p) => (p.vente ? "achat" : "location");
 
-  function add(id) {
+  function add(id, opts = {}) {
     const p = byId(id); if (!p) return;
-    const line = cart.find((i) => i.id === id);
-    if (line) line.qty += 1; else cart.push({ id, qty: 1, mode: defaultMode(p) });
+    const key = JSON.stringify(opts);
+    const line = cart.find((i) => i.id === id && JSON.stringify(i.opts || {}) === key);
+    if (line) line.qty += 1; else cart.push({ id, qty: 1, mode: defaultMode(p), opts });
     save();
     toast(`${p.brand} ${p.name} ajouté à votre demande`);
   }
@@ -86,15 +94,17 @@
 
   function card(p) {
     const c = catOf(p.cat);
-    const visual = p.img ? `<img src="${esc(p.img)}" alt="${esc(p.brand + " " + p.name)}" loading="lazy">` : svg(c.icon, 72);
+    const src = imgOf(p);
+    const visual = src ? `<img src="${esc(src)}" alt="${esc(p.brand + " " + p.name)}" loading="lazy" decoding="async">` : svg(c.icon, p.opts ? 48 : 72);
     const modes = [p.vente ? "Vente" : "", p.location ? "Location" : ""].filter(Boolean).map((m) => `<span class="mode">${m}</span>`).join("");
-    return `<article class="product">
-      <div class="product__visual"><span class="brand-pill">${esc(p.brand)}</span><span class="modes">${modes}</span>${visual}</div>
+    return `<article class="product ${p.opts ? "product--opts" : ""}">
+      <div class="product__visual ${src ? "has-img" : ""}"><span class="brand-pill">${esc(p.brand)}</span><span class="modes">${modes}</span>${visual}</div>
       <div class="product__body">
         <h3>${esc(p.name)}</h3>
-        <ul class="specs">${p.specs.slice(0, 3).map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
+        <ul class="specs">${p.specs.slice(0, p.opts ? 2 : 3).map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
+        ${optsHtml(p)}
         <div class="product__actions">
-          <button class="btn btn--outline btn--sm" data-detail="${p.id}">Détails</button>
+          ${p.opts ? "" : `<button class="btn btn--outline btn--sm" data-detail="${p.id}">Détails</button>`}
           <button class="btn btn--primary btn--sm" data-add="${p.id}">Ajouter</button>
         </div>
       </div></article>`;
@@ -112,14 +122,16 @@
   /* ---------- Fiche détail ---------- */
   function openDetail(id) {
     const p = byId(id); const c = catOf(p.cat);
-    const visual = p.img ? `<img src="${esc(p.img)}" alt="">` : svg(c.icon, 96);
+    const src = imgOf(p);
+    const visual = src ? `<img src="${esc(src)}" alt="${esc(p.brand + " " + p.name)}">` : svg(c.icon, 96);
     $("#detail-body").innerHTML = `
-      <div class="detail__visual">${visual}</div>
+      <div class="detail__visual ${src ? "has-img" : ""}">${visual}</div>
       <div class="detail__text">
         <span class="eyebrow">${esc(c.label)}</span>
         <h2>${esc(p.brand)} ${esc(p.name)}</h2>
         <p class="detail__modes">${[p.vente ? "Disponible à la vente" : "", p.location ? "Disponible à la location" : ""].filter(Boolean).join(" · ")}</p>
         <ul class="specs specs--full">${p.specs.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
+        ${optsHtml(p)}
         <p class="note">Caractéristiques indicatives. La configuration exacte, la référence et la disponibilité sont confirmées dans votre devis.</p>
         <button class="btn btn--primary" data-add="${p.id}" data-close="1">Ajouter à ma demande</button>
       </div>`;
@@ -136,8 +148,8 @@
       const p = byId(i.id);
       const opts = [p.vente ? ["achat", "Achat"] : null, p.location ? ["location", "Location"] : null].filter(Boolean)
         .map(([v, l]) => `<option value="${v}" ${i.mode === v ? "selected" : ""}>${l}</option>`).join("");
-      return `<li class="line" data-id="${p.id}">
-        <div class="line__info"><span class="line__brand">${esc(p.brand)}</span><strong>${esc(p.name)}</strong></div>
+      return `<li class="line" data-i="${cart.indexOf(i)}">
+        <div class="line__info"><span class="line__brand">${esc(p.brand)}</span><strong>${esc(p.name)}</strong>${i.opts && Object.keys(i.opts).length ? `<small class="line__opts">${esc(optsText(i.opts))}</small>` : ""}</div>
         <div class="line__controls">
           <select data-mode aria-label="Achat ou location">${opts}</select>
           <div class="qty"><button type="button" data-dec aria-label="Moins">−</button><span>${i.qty}</span><button type="button" data-inc aria-label="Plus">+</button></div>
@@ -157,7 +169,7 @@
   function summary() {
     return cart.map((i, n) => {
       const p = byId(i.id);
-      return `${n + 1}. ${p.brand} ${p.name} — Quantité : ${i.qty} — ${i.mode === "location" ? "LOCATION" : "ACHAT"}`;
+      return `${n + 1}. ${p.brand} ${p.name}${i.opts && Object.keys(i.opts).length ? " (" + optsText(i.opts) + ")" : ""} — Quantité : ${i.qty} — ${i.mode === "location" ? "LOCATION" : "ACHAT"}`;
     }).join("\n");
   }
 
@@ -196,13 +208,13 @@
   document.addEventListener("click", (e) => {
     const t = e.target.closest("button, [data-open-cart]"); if (!t) return;
     if (t.dataset.cat) { state.cat = t.dataset.cat; state.brand = "all"; renderAll(); }
-    else if (t.dataset.add) { add(t.dataset.add); if (t.dataset.close) $("#detail").close(); }
+    else if (t.dataset.add) { add(t.dataset.add, readOpts(t.closest(".product, .detail__text") || document)); if (t.dataset.close) $("#detail").close(); }
     else if (t.dataset.detail) openDetail(t.dataset.detail);
     else if (t.hasAttribute("data-open-cart")) { e.preventDefault(); openCart(); }
     else if (t.hasAttribute("data-close-cart")) closeCart();
     else if (t.hasAttribute("data-close-detail")) $("#detail").close();
     else if (t.closest(".line")) {
-      const line = cart.find((i) => i.id === t.closest(".line").dataset.id); if (!line) return;
+      const line = cart[Number(t.closest(".line").dataset.i)]; if (!line) return;
       if (t.hasAttribute("data-inc")) line.qty = Math.min(line.qty + 1, 999);
       else if (t.hasAttribute("data-dec")) line.qty = Math.max(line.qty - 1, 1);
       else if (t.hasAttribute("data-remove")) cart = cart.filter((i) => i !== line);
@@ -211,7 +223,7 @@
   });
   document.addEventListener("change", (e) => {
     if (e.target.matches("[data-mode]")) {
-      const line = cart.find((i) => i.id === e.target.closest(".line").dataset.id);
+      const line = cart[Number(e.target.closest(".line").dataset.i)];
       if (line) { line.mode = e.target.value; save(); }
     }
   });

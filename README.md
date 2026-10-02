@@ -27,7 +27,10 @@ Les endroits à personnaliser sont repérés par le symbole ✏️ dans les fich
 La boutique est la page `boutique.html`. Tous les produits sont dans **un seul fichier : `js/products.js`**.
 - **Ajouter un produit** : copiez une ligne `P("catégorie", "Marque", "Modèle", ["caractéristique", …], "VL")` et modifiez-la.
   `"VL"` = vente et location, `"V"` = vente seule, `"L"` = location seule.
-- **Mettre une photo** : déposez l'image dans `assets/produits/` puis ajoutez son chemin en dernier paramètre,
-  ex. `P("laptops", "HP", "ProBook 450 G10", [...], "VL", "assets/produits/probook-450.jpg")`.
+- **Photos** : les photos sont dans `assets/produits/`, une par produit, nommée comme l'identifiant du produit (format `.webp`).
+  Pour une nouvelle photo, déposez-la dans ce dossier et ajoutez l'identifiant à la liste `IMAGE_IDS` en bas de `js/products.js`.
+  Le logo Axon Group est ajouté automatiquement en bas de chaque photo.
+- **Options à choisir** (longueur, couleur, calibre…) : dernier paramètre de la ligne,
+  ex. `P("cables", "Belkin", "Câble HDMI", [...], "V", "", { "Longueur": ["1 m", "2 m", "3 m"] })`.
 - **Supprimer un produit** : effacez sa ligne.
 - Aucun prix n'est affiché. Le visiteur compose sa demande (panier), puis elle arrive par e-mail sur commercial@axongroupcorp.com.

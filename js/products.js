@@ -6,8 +6,11 @@
 
    • catégorie : une des valeurs de CATS ci-dessous (ex. "laptops", "cctv")
    • "VL"  = disponible à la Vente ET à la Location · "V" = vente seule · "L" = location seule
-   • Pour mettre une PHOTO : déposez l'image dans assets/produits/ et ajoutez son chemin
-     en dernier paramètre : P("laptops", "HP", "ProBook 450 G10", [...], "VL", "assets/produits/probook-450.jpg")
+   • PHOTOS : les photos du dossier assets/produits/ sont reliées automatiquement (voir IMAGE_IDS en bas
+     de ce fichier). Pour une nouvelle photo : déposez-la dans assets/produits/ au format .webp, nommée
+     comme l'identifiant du produit, puis ajoutez cet identifiant à IMAGE_IDS.
+   • OPTIONS à choisir par le client (longueur, couleur, calibre…) : ajoutez-les en dernier paramètre,
+     ex. P("cables", "Belkin", "Câble HDMI", [...], "V", "", { "Longueur": ["1 m", "2 m", "3 m"] })
    • Pour SUPPRIMER un produit : effacez sa ligne.
    Aucun prix n'est affiché : les prix sont donnés dans le devis.
    ========================================================================== */
@@ -32,9 +35,9 @@ const CATS = [
 ];
 
 const slug = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-const P = (cat, brand, name, specs, modes = "VL", img = "") => ({
+const P = (cat, brand, name, specs, modes = "VL", img = "", opts = null) => ({
   id: slug(`${brand} ${name}`), cat, brand, name, specs,
-  vente: modes.includes("V"), location: modes.includes("L"), img,
+  vente: modes.includes("V"), location: modes.includes("L"), img, opts,
 });
 
 const PRODUCTS = [
@@ -121,12 +124,12 @@ const PRODUCTS = [
   P("storage", "Kingston", "DataTraveler Exodia M 64 Go", ["Clé USB 3.2", "Capacité 64 Go", "Capuchon de protection", "Pratique au quotidien"], "V"),
 
   /* ---------- Câbles certifiés ---------- */
-  P("cables", "Belkin", "Câble HDMI 2.1 Ultra High Speed", ["Certifié HDMI Ultra High Speed", "48 Gbit/s, 8K / 4K 120 Hz", "Compatible consoles et TV récentes", "Longueurs au choix"], "V"),
-  P("cables", "Belkin", "Câble Thunderbolt 4", ["Certifié Thunderbolt 4", "40 Gbit/s, charge jusqu'à 100 W", "Vidéo 8K, données, alimentation", "Un seul câble pour tout"], "V"),
-  P("cables", "Belkin", "Câble USB-C 100 W", ["Certifié USB-IF", "Charge rapide jusqu'à 100 W", "Données USB 2.0", "Gaine renforcée"], "V"),
-  P("cables", "Belkin", "Câble USB-C vers Lightning (MFi)", ["Certifié Apple MFi", "Charge rapide iPhone / iPad", "Transfert de données", "Gaine renforcée"], "V"),
-  P("cables", "Club3D", "Câble DisplayPort 1.4 certifié VESA", ["Certifié VESA DisplayPort 1.4", "Jusqu'à 8K à 60 Hz", "HDR, 32,4 Gbit/s", "Idéal écrans professionnels et gaming"], "V"),
-  P("cables", "Anker", "Câble USB-C vers USB-C 100 W", ["Certifié USB-IF", "Charge rapide jusqu'à 100 W", "Tressé, très résistant", "Longueurs au choix"], "V"),
+  P("cables", "Belkin", "Câble HDMI 2.1 Ultra High Speed", ["Certifié HDMI Ultra High Speed", "48 Gbit/s, 8K / 4K 120 Hz", "Compatible consoles et TV récentes", "Longueurs au choix"], "V", "", {"Longueur": ["1 m", "2 m", "3 m", "5 m"]}),
+  P("cables", "Belkin", "Câble Thunderbolt 4", ["Certifié Thunderbolt 4", "40 Gbit/s, charge jusqu'à 100 W", "Vidéo 8K, données, alimentation", "Un seul câble pour tout"], "V", "", {"Longueur": ["0,8 m", "1 m", "2 m"]}),
+  P("cables", "Belkin", "Câble USB-C 100 W", ["Certifié USB-IF", "Charge rapide jusqu'à 100 W", "Données USB 2.0", "Gaine renforcée"], "V", "", {"Longueur": ["1 m", "2 m", "3 m"], "Couleur": ["Noir", "Blanc"]}),
+  P("cables", "Belkin", "Câble USB-C vers Lightning (MFi)", ["Certifié Apple MFi", "Charge rapide iPhone / iPad", "Transfert de données", "Gaine renforcée"], "V", "", {"Longueur": ["1 m", "2 m"], "Couleur": ["Blanc", "Noir"]}),
+  P("cables", "Club3D", "Câble DisplayPort 1.4 certifié VESA", ["Certifié VESA DisplayPort 1.4", "Jusqu'à 8K à 60 Hz", "HDR, 32,4 Gbit/s", "Idéal écrans professionnels et gaming"], "V", "", {"Longueur": ["1 m", "2 m", "3 m", "5 m"]}),
+  P("cables", "Anker", "Câble USB-C vers USB-C 100 W", ["Certifié USB-IF", "Charge rapide jusqu'à 100 W", "Tressé, très résistant", "Longueurs au choix"], "V", "", {"Longueur": ["1 m", "1,8 m", "3 m"]}),
 
   /* ---------- Points d'accès Wi-Fi ---------- */
   P("wifi", "Ubiquiti", "UniFi U6 Lite", ["Wi-Fi 6 (AX1500)", "Alimentation PoE", "Pour bureaux et petits locaux", "Gestion centralisée UniFi"]),
@@ -161,7 +164,7 @@ const PRODUCTS = [
   /* ---------- Vidéosurveillance ---------- */
   P("cctv", "Hikvision", "DS-2CD2143G2-I (dôme IP 4 Mpx)", ["Caméra dôme IP 4 Mpx AcuSense", "Vision nocturne infrarouge 40 m", "Détection humain / véhicule", "Étanche IP67"]),
   P("cctv", "Hikvision", "DS-2CD2T47G2-L (ColorVu 4 Mpx)", ["Caméra bullet IP 4 Mpx ColorVu", "Image en couleur 24h/24", "Lumière blanche intégrée", "Étanche IP67"]),
-  P("cctv", "Hikvision", "DS-2CD2347G2-LU (ColorVu audio)", ["Caméra bullet IP 4 Mpx ColorVu", "Micro intégré", "Image en couleur 24h/24", "Étanche IP67"]),
+  P("cctv", "Hikvision", "DS-2CD2347G2-LU (ColorVu audio)", ["Caméra tourelle IP 4 Mpx ColorVu", "Micro intégré", "Image en couleur 24h/24", "Étanche IP67"]),
   P("cctv", "Hikvision", "DS-2DE2A404IW-DE3 (PTZ 4 Mpx)", ["Caméra motorisée PTZ 4 Mpx", "Zoom optique x4", "Vision nocturne infrarouge", "Pour grandes zones"]),
   P("cctv", "Hikvision", "DS-2CE76D0T-ITMF (dôme Turbo HD)", ["Caméra dôme analogique HD 2 Mpx", "Vision nocturne infrarouge", "Compatible enregistreurs DVR Turbo HD", "Solution économique"]),
   P("cctv", "Hikvision", "DS-2CE16D0T-IRF (bullet Turbo HD)", ["Caméra bullet analogique HD 2 Mpx", "Vision nocturne infrarouge", "Compatible enregistreurs DVR Turbo HD", "Étanche"]),
@@ -180,21 +183,24 @@ const PRODUCTS = [
   P("access", "Hikvision", "DS-K1102M (lecteur de badge)", ["Lecteur de cartes Mifare 13,56 MHz", "Étanche, usage extérieur", "Sortie Wiegand / RS-485", "S'ajoute à un contrôleur"], "V"),
 
   /* ---------- Câblage réseau ---------- */
-  P("netcabling", "Legrand", "Câble Cat6 U/UTP (bobine 305 m)", ["Catégorie 6, 4 paires", "Bobine de 305 m", "Pour câblage horizontal", "Gaine LSZH"], "V"),
-  P("netcabling", "Nexans", "LANmark Cat6A F/FTP (bobine 500 m)", ["Catégorie 6A blindé F/FTP", "Jusqu'à 10 Gbit/s", "Pour installations exigeantes", "Gaine LSZH"], "V"),
-  P("netcabling", "Legrand", "Prise RJ45 Cat6 (keystone)", ["Prise murale RJ45 catégorie 6", "Compatible blindé et non blindé", "Montage rapide", "Plusieurs coloris"], "V"),
-  P("netcabling", "Legrand", "Panneau de brassage 24 ports Cat6", ["Panneau 24 ports, format 1U", "Catégorie 6", "Pour baie 19\"", "Repérage des ports"], "V"),
-  P("netcabling", "Nexans", "Baie de brassage 19\" murale 9U / 12U", ["Coffret mural 19\"", "Porte vitrée verrouillable", "Ventilation", "Pour locaux techniques"], "V"),
-  P("netcabling", "Nexans", "Jarretière RJ45 Cat6A S/FTP", ["Catégorie 6A blindée S/FTP", "Longueurs 0,5 à 5 m", "Gaine LSZH", "Certifiée"], "V"),
-  P("netcabling", "Nexans", "Jarretière fibre optique LC/LC", ["Fibre optique OS2 monomode", "Connecteurs LC/LC duplex", "Longueurs au choix", "Pour liaisons entre baies"], "V"),
+  P("netcabling", "Legrand", "Câble Cat6 U/UTP (bobine 305 m)", ["Catégorie 6, 4 paires", "Bobine de 305 m", "Pour câblage horizontal", "Gaine LSZH"], "V", "", {"Conditionnement": ["Bobine de 305 m", "Au mètre"], "Gaine": ["LSZH (sans halogène)", "PVC"]}),
+  P("netcabling", "Nexans", "LANmark Cat6A F/FTP (bobine 500 m)", ["Catégorie 6A blindé F/FTP", "Jusqu'à 10 Gbit/s", "Pour installations exigeantes", "Gaine LSZH"], "V", "", {"Conditionnement": ["Bobine de 500 m", "Au mètre"], "Gaine": ["LSZH (sans halogène)", "PVC"]}),
+  P("netcabling", "Legrand", "Prise RJ45 Cat6 (keystone)", ["Prise murale RJ45 catégorie 6", "Compatible blindé et non blindé", "Montage rapide", "Plusieurs coloris"], "V", "", {"Type": ["Non blindée (UTP)", "Blindée (STP)"], "Couleur": ["Blanc", "Noir"]}),
+  P("netcabling", "Legrand", "Panneau de brassage 24 ports Cat6", ["Panneau 24 ports, format 1U", "Catégorie 6", "Pour baie 19\"", "Repérage des ports"], "V", "", {"Type": ["Non blindé (UTP)", "Blindé (STP)"], "Ports": ["24 ports", "48 ports"]}),
+  P("netcabling", "Nexans", "Baie de brassage 19\" murale 9U / 12U", ["Coffret mural 19\"", "Porte vitrée verrouillable", "Ventilation", "Pour locaux techniques"], "V", "", {"Hauteur": ["6U", "9U", "12U"], "Profondeur": ["450 mm", "600 mm"]}),
+  P("netcabling", "Nexans", "Jarretière RJ45 Cat6A S/FTP", ["Catégorie 6A blindée S/FTP", "Longueurs 0,5 à 5 m", "Gaine LSZH", "Certifiée"], "V", "", {"Longueur": ["0,5 m", "1 m", "2 m", "3 m", "5 m"], "Couleur": ["Gris", "Bleu", "Rouge", "Noir"]}),
+  P("netcabling", "Nexans", "Jarretière fibre optique LC/LC", ["Fibre optique OS2 monomode", "Connecteurs LC/LC duplex", "Longueurs au choix", "Pour liaisons entre baies"], "V", "", {"Type de fibre": ["Monomode OS2", "Multimode OM3"], "Longueur": ["1 m", "2 m", "3 m", "5 m", "10 m"]}),
 
   /* ---------- Câblage électrique et énergie ---------- */
-  P("electrical", "Nexans", "Câble H07V-K (1,5 / 2,5 / 6 mm²)", ["Fil de câblage souple", "Section au choix", "Plusieurs coloris", "Pour installations intérieures"], "V"),
-  P("electrical", "Nexans", "Câble U-1000 R2V (3G2,5 mm²)", ["Câble d'alimentation rigide", "3 conducteurs, 2,5 mm²", "Pour distribution électrique", "Usage intérieur / enterré"], "V"),
-  P("electrical", "Legrand", "Disjoncteurs modulaires DX³", ["Protection des circuits", "Calibres 10 à 63 A", "Montage sur rail DIN", "Fiabilité reconnue"], "V"),
-  P("electrical", "Schneider Electric", "Acti9 (disjoncteurs et différentiels)", ["Protection des personnes et des circuits", "Calibres au choix", "Montage sur rail DIN", "Gamme professionnelle"], "V"),
-  P("electrical", "Legrand", "Coffret électrique", ["Coffret de distribution modulaire", "Capacité selon besoin", "Porte transparente", "Pour locaux professionnels"], "V"),
+  P("electrical", "Nexans", "Câble H07V-K (1,5 / 2,5 / 6 mm²)", ["Fil de câblage souple", "Section au choix", "Plusieurs coloris", "Pour installations intérieures"], "V", "", {"Section": ["1,5 mm²", "2,5 mm²", "4 mm²", "6 mm²", "10 mm²"], "Couleur": ["Bleu", "Marron", "Noir", "Rouge", "Vert/jaune (terre)"], "Conditionnement": ["Couronne de 100 m", "Au mètre"]}),
+  P("electrical", "Nexans", "Câble U-1000 R2V (3G2,5 mm²)", ["Câble d'alimentation rigide", "3 conducteurs, 2,5 mm²", "Pour distribution électrique", "Usage intérieur / enterré"], "V", "", {"Section": ["3G1,5 mm²", "3G2,5 mm²", "3G4 mm²", "3G6 mm²"], "Conditionnement": ["Couronne de 100 m", "Au mètre"]}),
+  P("electrical", "Legrand", "Disjoncteurs modulaires DX³", ["Protection des circuits", "Calibres 10 à 63 A", "Montage sur rail DIN", "Fiabilité reconnue"], "V", "", {"Pôles": ["1P+N", "2P", "3P", "4P"], "Calibre": ["10 A", "16 A", "20 A", "25 A", "32 A", "40 A", "63 A"]}),
+  P("electrical", "Schneider Electric", "Acti9 (disjoncteurs et différentiels)", ["Protection des personnes et des circuits", "Calibres au choix", "Montage sur rail DIN", "Gamme professionnelle"], "V", "", {"Type": ["Disjoncteur", "Interrupteur différentiel"], "Pôles": ["1P+N", "2P", "3P", "4P"], "Calibre": ["10 A", "16 A", "20 A", "25 A", "32 A", "40 A", "63 A"], "Sensibilité (différentiel)": ["Sans objet", "30 mA", "300 mA"]}),
+  P("electrical", "Legrand", "Coffret électrique", ["Coffret de distribution modulaire", "Capacité selon besoin", "Porte transparente", "Pour locaux professionnels"], "V", "", {"Capacité": ["1 rangée – 13 modules", "1 rangée – 18 modules", "2 rangées – 24 modules", "2 rangées – 36 modules", "3 rangées – 54 modules", "4 rangées – 72 modules"], "Installation": ["Encastré", "Apparent"]}),
   P("electrical", "APC", "Back-UPS BX1600MI (1 600 VA)", ["Onduleur 1 600 VA", "Protection contre les coupures", "Idéal postes et réseau", "Régulation de tension AVR"]),
   P("electrical", "APC", "Smart-UPS SMT1500I (1 500 VA)", ["Onduleur line-interactive 1 500 VA", "Écran LCD", "Batterie remplaçable", "Idéal serveurs et réseau"]),
   P("electrical", "APC", "Essential SurgeArrest (multiprise parafoudre)", ["Multiprise avec parafoudre", "Protège contre les surtensions", "Plusieurs prises", "Pour postes de travail"], "V"),
 ];
+
+/* Photos disponibles : identifiants des produits qui ont une image dans assets/produits/<identifiant>.webp */
+const IMAGE_IDS = new Set(["apple-ipad-air-11-puce-m3", "apple-ipad-puce-a16", "apple-iphone-16", "apple-iphone-17", "apple-iphone-17-pro", "asus-expertbook-b1", "asus-expertcenter-d5-tower", "asus-rog-strix-g16", "asus-rog-zephyrus-g14", "asus-tuf-gaming-a15", "asus-vivobook-15", "asus-zenbook-14-oled", "canon-i-sensys-lbp6030", "canon-i-sensys-mf3010", "canon-i-sensys-mf445dw", "canon-pixma-g3430", "cisco-business-cbs250-24t-4g", "cisco-catalyst-1000-c1000-24t-4g-l", "cisco-catalyst-1000-poe-c1000-24p-4g-l", "cisco-isr-1100-c1111-8p", "d-link-dap-2610", "d-link-dgs-1100-08p", "d-link-dgs-1210-28", "d-link-dsr-1000ac", "fortinet-fortiap-231f", "fortinet-fortigate-40f", "fortinet-fortigate-60f", "fortinet-fortiswitch-108f-poe", "hikvision-ds-2cd2143g2-i-dome-ip-4-mpx", "hikvision-ds-2cd2347g2-lu-colorvu-audio", "hikvision-ds-2cd2t47g2-l-colorvu-4-mpx", "hikvision-ds-2ce16d0t-irf-bullet-turbo-hd", "hikvision-ds-2ce76d0t-itmf-dome-turbo-hd", "hikvision-ds-2de2a404iw-de3-ptz-4-mpx", "hikvision-ds-7204hqhi-k1-dvr-4-voies", "hikvision-ds-7604ni-k1-4p-nvr-4-voies-poe", "hikvision-ds-7608ni-k2-8p-nvr-8-voies-poe", "hikvision-ds-7732ni-k4-nvr-32-voies", "hikvision-ds-k1102m-lecteur-de-badge", "hikvision-ds-k1t341am-reconnaissance-faciale", "hikvision-ds-k1t671m-terminal-facial-7", "hikvision-ds-k2604t-controleur-4-portes", "hp-250-g10", "hp-all-in-one-24", "hp-color-laserjet-pro-mfp-m479fdw", "hp-combo-clavier-souris-235", "hp-elitebook-840-g10", "hp-laserjet-pro-m404dn", "hp-laserjet-pro-mfp-m428fdw", "hp-omen-16", "hp-pavilion-15", "hp-probook-450-g10", "hp-smart-tank-580", "hp-victus-16", "huawei-airengine-5761-11", "huawei-mate-60-pro", "huawei-matepad-11-5", "huawei-nova-gamme", "huawei-pura-70-pro", "jabra-evolve2-40", "kingston-a400-480-go", "kingston-datatraveler-exodia-m-64-go", "lenovo-ideacentre-aio-3", "lenovo-ideapad-slim-3-15", "lenovo-legion-5i", "lenovo-loq-15", "lenovo-souris-usb-compacte", "lenovo-thinkbook-16-g7-iml", "lenovo-thinkcentre-m70s", "lenovo-thinkcentre-tiny-m70q", "lenovo-thinkpad-e14-gen-6", "lenovo-thinkpad-t14-gen-5", "lenovo-thinkpad-x1-carbon-gen-12", "logitech-c920-hd-pro", "logitech-m185", "logitech-mk270-clavier-souris", "logitech-mx-keys-s", "logitech-mx-master-3s", "samsung-870-evo-1-to", "samsung-990-evo-1-to", "samsung-galaxy-a16", "samsung-galaxy-a36-5g", "samsung-galaxy-a56-5g", "samsung-galaxy-s25-ultra", "samsung-galaxy-tab-a9", "samsung-galaxy-tab-s10-fe", "samsung-t7-portable-ssd-1-to", "seagate-barracuda-2-to-3-5", "seagate-expansion-portable-2-to", "seagate-skyhawk-4-to", "tp-link-omada-eap610", "tp-link-omada-eap670", "tp-link-omada-er605", "tp-link-omada-er7206", "tp-link-omada-sg2428p", "tp-link-tl-sg1016pe", "tp-link-tl-sg108", "ubiquiti-unifi-u6-lite", "ubiquiti-unifi-u6-long-range", "ubiquiti-unifi-u6-pro", "ubiquiti-unifi-u7-pro", "western-digital-blue-sn580-1-to", "western-digital-elements-portable-2-to", "western-digital-purple-4-to"]);

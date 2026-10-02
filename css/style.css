@@ -453,3 +453,30 @@ body.no-scroll { overflow: hidden; }
 }
 
 [hidden] { display: none !important; }
+
+/* ---------- Photos produits + logo Axon Group en bas de chaque photo ---------- */
+.product__visual.has-img, .detail__visual.has-img { background: #fff; }
+.product__visual.has-img img { padding: 16px 16px 44px; }
+.detail__visual.has-img img { padding: 24px 24px 56px; }
+.product__visual.has-img::after, .detail__visual.has-img::after {
+  content: ""; position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%);
+  width: 96px; height: 30px; border-radius: 8px;
+  background: rgba(255, 255, 255, .92) url(../assets/logo-wordmark.png) center / 82px auto no-repeat;
+  box-shadow: 0 1px 6px rgba(10, 22, 48, .14);
+}
+.detail__visual { position: relative; }
+.detail__visual.has-img::after { width: 120px; height: 38px; background-size: 102px auto; bottom: 12px; }
+
+/* ---------- Options à choisir (câbles, câblage) ---------- */
+.product--opts .product__visual { height: 96px; }
+.opts { display: grid; gap: 10px; margin: 0 0 16px; }
+.opts label { display: grid; gap: 4px; font-size: .78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.opts select { padding: 9px 12px; border-radius: 10px; border: 1.5px solid var(--border); background: var(--bg-soft); font: inherit; font-size: .92rem; font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--text); }
+.line__opts { display: block; margin-top: 4px; color: var(--muted); font-size: .82rem; font-weight: 500; }
+
+/* Correctif : la photo reste dans son cadre et laisse la place au logo */
+.product__visual.has-img, .detail__visual.has-img { overflow: hidden; }
+.product__visual.has-img img, .detail__visual.has-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.detail__visual.has-img { min-height: 320px; }
+.brand-pill, .modes { z-index: 2; }
+.product__visual.has-img img { padding: 30px 14px 42px; }
