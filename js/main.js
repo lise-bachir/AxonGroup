@@ -93,17 +93,6 @@ if (form) {
   });
 }
 
-// Boutons qui présélectionnent le service dans le formulaire de contact
-document.querySelectorAll("[data-service]").forEach((link) =>
-  link.addEventListener("click", () => {
-    const select = document.getElementById("service");
-    if (!select) return;
-    const wanted = link.dataset.service;
-    const option = [...select.options].find((o) => o.textContent.startsWith(wanted));
-    if (option) select.value = option.value || option.textContent;
-  })
-);
-
 // Année automatique dans le pied de page
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
