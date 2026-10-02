@@ -12,8 +12,9 @@ Les endroits à personnaliser sont repérés par le symbole ✏️ dans les fich
 | Ce que vous voulez changer | Fichier |
 |---|---|
 | Textes, services, chiffres, avis clients, adresse, téléphone | `index.html` |
-| E-mail qui reçoit les demandes + numéro WhatsApp | `js/main.js` (2 lignes en haut) |
+| E-mail qui reçoit les devis + numéro WhatsApp | `js/main.js` (2 lignes en haut) |
 | Couleurs du site | `css/style.css` (variables en haut du fichier) |
+| Logos clients : déposez-les dans `assets/clients/` puis voir la section « Ils nous font confiance » de `index.html` | `index.html` |
 | Mentions légales (RCCM, NINEA…) | `mentions-legales.html` |
 | Logo | `assets/favicon.svg` (remplaçable par votre propre logo) |
 

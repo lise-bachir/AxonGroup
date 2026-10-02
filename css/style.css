@@ -6,14 +6,14 @@
 
 :root {
   /* Couleurs principales */
-  --primary: #4f46e5;        /* Indigo — boutons, liens */
-  --primary-dark: #3730a3;
-  --accent: #06b6d4;         /* Cyan — dégradés, détails */
+  --primary: #1f5bd8;        /* Bleu roi — boutons, liens */
+  --primary-dark: #143c94;
+  --accent: #4f8cff;         /* Bleu clair — dégradés, détails */
   --warm: #f59e0b;           /* Ambre — petites touches */
 
   /* Fonds et textes */
-  --night: #0b1023;          /* Bleu nuit — sections sombres */
-  --night-2: #131a36;
+  --night: #0a1630;          /* Bleu marine — sections sombres */
+  --night-2: #102148;
   --bg: #ffffff;
   --bg-soft: #f5f7fb;
   --text: #0f172a;
@@ -56,10 +56,10 @@ p { margin: 0 0 1em; }
   display: inline-block;
   font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
   color: var(--primary);
-  background: rgba(79, 70, 229, .08);
+  background: rgba(31, 91, 216, .08);
   padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
 }
-.section--dark .eyebrow { color: var(--accent); background: rgba(6, 182, 212, .12); }
+.section--dark .eyebrow { color: var(--accent); background: rgba(79, 140, 255, .12); }
 .gradient-text { background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 /* ---------- Boutons ---------- */
@@ -71,8 +71,8 @@ p { margin: 0 0 1em; }
   font-family: inherit;
 }
 .btn svg { width: 18px; height: 18px; }
-.btn--primary { background: var(--gradient); color: #fff; box-shadow: 0 10px 24px -8px rgba(79, 70, 229, .6); }
-.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(79, 70, 229, .7); }
+.btn--primary { background: var(--gradient); color: #fff; box-shadow: 0 10px 24px -8px rgba(31, 91, 216, .6); }
+.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(31, 91, 216, .7); }
 .btn--ghost { border-color: rgba(255, 255, 255, .25); color: #fff; }
 .btn--ghost:hover { background: rgba(255, 255, 255, .08); }
 
@@ -297,3 +297,62 @@ p { margin: 0 0 1em; }
   .cta { padding: 44px 28px; }
   .form { padding: 24px; }
 }
+
+/* ---------- Logo ---------- */
+.logo img { width: 40px; height: 40px; }
+.logo { letter-spacing: .04em; }
+.logo span { font-weight: 600; letter-spacing: .2em; font-size: .8em; margin-left: -4px; }
+
+/* ---------- Puces de réassurance (accueil) ---------- */
+.hero__tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+.hero__tags li {
+  list-style: none; padding: 8px 16px; border-radius: 999px; font-size: .9rem; font-weight: 600;
+  color: #dbe6ff; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+}
+ul.hero__tags { padding: 0; margin-bottom: 0; }
+
+/* ---------- Carte mise en avant (IA) ---------- */
+.card--featured { border-color: var(--primary); box-shadow: var(--shadow); position: relative; }
+.card__flag {
+  position: absolute; top: 18px; right: 18px; font-size: .72rem; font-weight: 800; letter-spacing: .08em;
+  text-transform: uppercase; color: #fff; background: var(--gradient); padding: 4px 10px; border-radius: 999px;
+}
+
+/* ---------- Bloc intelligence artificielle ---------- */
+.ai { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.ai h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+.ai p { color: #a9b1cc; font-size: 1.05rem; }
+.ai-list { list-style: none; padding: 0; margin: 28px 0 32px; display: grid; gap: 16px; }
+.ai-list li { display: flex; gap: 14px; }
+.ai-list svg { flex: none; width: 24px; height: 24px; color: var(--accent); margin-top: 2px; }
+.ai-list strong { display: block; color: #fff; }
+.ai-list small { color: #a9b1cc; font-size: .93rem; }
+.chat { background: var(--night-2); border: 1px solid rgba(255,255,255,.1); border-radius: 24px; padding: 24px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.5); }
+.chat__head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; margin-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.08); color: #fff; font-weight: 700; }
+.chat__head .avatar { width: 38px; height: 38px; }
+.chat__head small { display: block; font-weight: 500; color: #4ade80; font-size: .78rem; }
+.bubble { max-width: 85%; padding: 12px 16px; border-radius: 16px; margin-bottom: 12px; font-size: .94rem; line-height: 1.5; }
+.bubble--in { background: rgba(255,255,255,.08); color: #e7eaf6; border-bottom-left-radius: 4px; }
+.bubble--out { background: var(--gradient); color: #fff; margin-left: auto; border-bottom-right-radius: 4px; }
+
+/* ---------- Ils nous font confiance ---------- */
+.trust { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+.trust__item {
+  display: grid; place-items: center; min-height: 96px; padding: 20px; border-radius: var(--radius);
+  background: var(--bg); border: 1px solid var(--border); color: var(--muted); font-weight: 700; text-align: center;
+}
+.trust__item img { max-height: 56px; width: auto; filter: grayscale(1); opacity: .8; transition: .2s; }
+.trust__item:hover img { filter: none; opacity: 1; }
+.trust__empty {
+  grid-column: 1 / -1; text-align: center; padding: 40px 24px; border-radius: var(--radius);
+  border: 2px dashed var(--border); color: var(--muted); background: var(--bg);
+}
+.trust__empty strong { display: block; color: var(--text); font-size: 1.15rem; margin-bottom: 6px; }
+
+/* ---------- Message du formulaire ---------- */
+.form__status { margin: 14px 0 0; padding: 12px 16px; border-radius: 12px; font-size: .95rem; display: none; }
+.form__status.is-ok { display: block; background: #e8f8ee; color: #14683a; }
+.form__status.is-error { display: block; background: #fdecec; color: #9b1c1c; }
+.hp { position: absolute; left: -9999px; }
+
+@media (max-width: 1000px) { .ai { grid-template-columns: 1fr; } }

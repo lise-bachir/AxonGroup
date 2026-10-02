@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- ✏️ Titre et description affichés dans Google -->
-  <title>Axon Group — Services informatiques pour entreprises</title>
-  <meta name="description" content="Axon Group accompagne les entreprises dans leurs projets informatiques : développement web, infogérance, réseaux, cybersécurité, cloud et formation.">
-  <meta property="og:title" content="Axon Group — Services informatiques">
-  <meta property="og:description" content="Votre partenaire informatique : développement, infogérance, réseaux, cybersécurité et cloud.">
+  <title>Axon Group — Solutions informatiques, développement, cybersécurité et IA à Dakar</title>
+  <meta name="description" content="Axon Group accompagne les entreprises à Dakar : solutions IT, matériel informatique, développement web et mobile, cybersécurité, agents IA sur mesure, support et conseil.">
+  <meta property="og:title" content="Axon Group — Connecter. Développer. Innover.">
+  <meta property="og:description" content="Des solutions informatiques sur mesure pour accompagner les entreprises dans leur transformation digitale.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0b1023">
+  <meta property="og:url" content="https://axongroupcorp.com/">
+  <link rel="canonical" href="https://axongroupcorp.com/">
+  <meta name="theme-color" content="#0a1630">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,12 +23,12 @@
   <!-- ================= EN-TÊTE ================= -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#accueil" class="logo"><img src="assets/favicon.svg" alt="">Axon<span>Group</span></a>
+      <a href="#accueil" class="logo"><img src="assets/favicon.svg" alt="">AXON<span>GROUP</span></a>
       <nav class="nav" id="nav">
         <a href="#services">Services</a>
+        <a href="#ia">Intelligence artificielle</a>
         <a href="#apropos">À propos</a>
-        <a href="#methode">Méthode</a>
-        <a href="#avis">Avis clients</a>
+        <a href="#confiance">Ils nous font confiance</a>
         <a href="#contact" class="btn btn--primary">Demander un devis</a>
       </nav>
       <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -36,35 +38,34 @@
   </header>
 
   <main>
-    <!-- ================= HÉROS ================= -->
+    <!-- ================= ACCUEIL ================= -->
     <section class="hero" id="accueil">
       <div class="hero__grid"></div>
       <div class="container hero__inner">
         <div class="reveal">
-          <span class="eyebrow">Services informatiques</span>
-          <h1>La technologie qui fait <span class="gradient-text">avancer votre entreprise</span></h1>
-          <p class="hero__lead">De la création de votre site web à la sécurisation de votre réseau, Axon Group prend en charge votre informatique pour que vous puissiez vous concentrer sur votre métier.</p>
+          <span class="eyebrow">Technologie au service de votre performance</span>
+          <h1>Connecter. Développer. <span class="gradient-text">Innover.</span></h1>
+          <p class="hero__lead">Des solutions informatiques sur mesure pour accompagner les entreprises dans leur transformation digitale : équipements, logiciels, sécurité et intelligence artificielle.</p>
           <div class="hero__actions">
-            <a href="#contact" class="btn btn--primary">Parlons de votre projet
+            <a href="#contact" class="btn btn--primary">Demander un devis gratuit
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a href="#services" class="btn btn--ghost">Voir nos services</a>
+            <a href="#services" class="btn btn--ghost">Découvrir nos services</a>
           </div>
-          <!-- ✏️ Chiffres clés -->
-          <div class="hero__trust">
-            <div><strong>50+</strong>clients accompagnés</div>
-            <div><strong>24h</strong>délai d'intervention</div>
-            <div><strong>98%</strong>clients satisfaits</div>
-          </div>
+          <ul class="hero__tags">
+            <li>Devis gratuit</li>
+            <li>Réponse sous 24h</li>
+            <li>Lun – Ven · 8h – 18h</li>
+          </ul>
         </div>
 
         <div class="hero__card reveal" aria-hidden="true">
           <div class="hero__card-top"><i></i><i></i><i></i></div>
-          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>Pare-feu & antivirus</span><b class="badge">Protégé</b></div>
-          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8H7z"/></svg>Sauvegardes cloud</span><b class="badge">À jour</b></div>
-          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Parc informatique</span><b class="badge">32 postes OK</b></div>
-          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a14.5 14.5 0 0 1 20 0"/><circle cx="12" cy="19.5" r="1"/></svg>Réseau & Wi-Fi</span><b class="badge">99,9 %</b></div>
-          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Nouveau site web</span><b class="badge badge--warm">En cours</b></div>
+          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Solutions IT</span><b class="badge">Opérationnel</b></div>
+          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Développement</span><b class="badge badge--warm">En cours</b></div>
+          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>Cybersécurité</span><b class="badge">Protégé</b></div>
+          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M8 14h.01M16 14h.01M9 18h6"/></svg>Agent IA</span><b class="badge">Actif 24h/24</b></div>
+          <div class="status"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1v-7h3zM3 19a2 2 0 0 0 2 2h1v-7H3z"/></svg>Support</span><b class="badge">Disponible</b></div>
         </div>
       </div>
     </section>
@@ -81,46 +82,72 @@
 
         <div class="cards">
           <article class="card reveal">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
-            <h3>Développement web & mobile</h3>
-            <p>Sites vitrines, boutiques en ligne et applications pensés pour convertir vos visiteurs en clients.</p>
-            <ul><li>Sites web & e-commerce</li><li>Applications mobiles</li><li>Logiciels métier sur mesure</li></ul>
-          </article>
-
-          <article class="card reveal">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4 2.5-2.5z"/></svg></div>
-            <h3>Infogérance & support</h3>
-            <p>Nous gérons et entretenons votre parc informatique pour éviter les pannes et les pertes de temps.</p>
-            <ul><li>Maintenance préventive</li><li>Assistance à distance et sur site</li><li>Contrats adaptés à votre taille</li></ul>
-          </article>
-
-          <article class="card reveal">
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><path d="M6 6.5h.01M6 17.5h.01"/></svg></div>
-            <h3>Réseaux & infrastructure</h3>
-            <p>Installation et configuration de réseaux fiables, rapides et évolutifs pour vos locaux.</p>
-            <ul><li>Câblage & Wi-Fi professionnel</li><li>Serveurs et stockage</li><li>Téléphonie IP</li></ul>
+            <h3>Solutions IT</h3>
+            <p>Des systèmes fiables et évolutifs pour que votre activité ne s'arrête jamais.</p>
+            <ul><li>Infogérance et maintenance</li><li>Réseaux, Wi-Fi et serveurs</li><li>Cloud, messagerie et sauvegardes</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+            <h3>Hardware</h3>
+            <p>Tout l'équipement informatique de votre entreprise, choisi, fourni et installé par nos soins.</p>
+            <ul><li>Vente d'équipements informatiques</li><li>Location (courte et longue durée)</li><li>Installation et mise en service</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+            <h3>Développement</h3>
+            <p>Applications web, mobiles et logiciels sur mesure, pensés pour vos besoins.</p>
+            <ul><li>Sites web et e-commerce</li><li>Applications mobiles</li><li>Logiciels métier sur mesure</li></ul>
           </article>
 
           <article class="card reveal">
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
             <h3>Cybersécurité</h3>
-            <p>Protégez vos données et celles de vos clients contre les virus, piratages et fuites.</p>
-            <ul><li>Audit de sécurité</li><li>Pare-feu & antivirus</li><li>Sensibilisation des équipes</li></ul>
+            <p>Protégez vos données et assurez votre sérénité face aux menaces.</p>
+            <ul><li>Audit de sécurité</li><li>Pare-feu, antivirus et sauvegardes</li><li>Sensibilisation de vos équipes</li></ul>
+          </article>
+
+          <article class="card card--featured reveal">
+            <span class="card__flag">Nouveau</span>
+            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M8 14h.01M16 14h.01M9 18h6"/></svg></div>
+            <h3>IA et agents IA</h3>
+            <p>Des agents d'intelligence artificielle conçus pour les besoins précis de votre entreprise.</p>
+            <ul><li>Conception d'agents IA sur mesure</li><li>Automatisation des tâches répétitives</li><li>Formation de vos équipes</li></ul>
           </article>
 
           <article class="card reveal">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8H7z"/></svg></div>
-            <h3>Cloud & messagerie</h3>
-            <p>Travaillez de partout en toute sécurité grâce aux outils collaboratifs modernes.</p>
-            <ul><li>Microsoft 365 & Google Workspace</li><li>Sauvegardes automatiques</li><li>Migration vers le cloud</li></ul>
+            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1v-7h3zM3 19a2 2 0 0 0 2 2h1v-7H3z"/></svg></div>
+            <h3>Support et conseil</h3>
+            <p>Un accompagnement réactif et humain, avant, pendant et après votre projet.</p>
+            <ul><li>Assistance à distance et sur site</li><li>Stratégie et transformation digitale</li><li>Formations bureautique et outils</li></ul>
           </article>
+        </div>
+      </div>
+    </section>
 
-          <article class="card reveal">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
-            <h3>Conseil & formation</h3>
-            <p>Nous vous aidons à faire les bons choix technologiques et à former vos collaborateurs.</p>
-            <ul><li>Stratégie et transformation digitale</li><li>Choix des équipements</li><li>Formations bureautique & outils</li></ul>
-          </article>
+    <!-- ================= INTELLIGENCE ARTIFICIELLE ================= -->
+    <section class="section section--dark" id="ia">
+      <div class="container ai">
+        <div class="reveal">
+          <span class="eyebrow">Intelligence artificielle</span>
+          <h2>Un agent IA adapté aux besoins de votre entreprise</h2>
+          <p>Nous concevons des agents IA qui travaillent pour vous, connectés à vos outils et à vos données, pour gagner du temps et mieux servir vos clients.</p>
+          <ul class="ai-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><div><strong>Assistant client 24h/24</strong><small>Répond à vos clients sur votre site ou sur WhatsApp.</small></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg><div><strong>Automatisation des tâches</strong><small>Relances, rapports, saisie, tri des e-mails : fini le travail répétitif.</small></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 14h6M9 17h4"/></svg><div><strong>Exploitation de vos documents</strong><small>Retrouvez et synthétisez l'information de vos fichiers en quelques secondes.</small></div></li>
+          </ul>
+          <a href="#contact" class="btn btn--primary">Parler de mon projet IA</a>
+        </div>
+
+        <div class="chat reveal" aria-hidden="true">
+          <div class="chat__head"><span class="avatar">IA</span><div>Assistant Axon<small>● En ligne</small></div></div>
+          <div class="bubble bubble--out">Bonjour, quels sont vos horaires ?</div>
+          <div class="bubble bubble--in">Bonjour ! Nous sommes ouverts du lundi au vendredi, de 8h à 18h. Souhaitez-vous un devis ?</div>
+          <div class="bubble bubble--out">Oui, pour 10 ordinateurs portables.</div>
+          <div class="bubble bubble--in">Très bien. J'ai transmis votre demande à notre équipe commerciale, qui vous répond sous 24h.</div>
         </div>
       </div>
     </section>
@@ -130,24 +157,23 @@
       <div class="container about">
         <div class="about__text reveal">
           <span class="eyebrow">Qui sommes-nous ?</span>
-          <!-- ✏️ Présentation de votre entreprise -->
-          <h2>Un partenaire proche, réactif et engagé</h2>
-          <p>Axon Group est une entreprise de services informatiques qui accompagne les PME, les commerces, les associations et les institutions dans leur transformation numérique.</p>
+          <h2>Votre partenaire technologique de confiance</h2>
+          <p>Axon Group est une entreprise de services informatiques basée à Dakar. Nous accompagnons les entreprises, commerces, associations et institutions dans leur transformation digitale.</p>
           <p>Notre conviction : l'informatique doit être un atout, pas une source de soucis. Nous parlons votre langage, sans jargon, et restons à vos côtés sur la durée.</p>
           <div class="features">
-            <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>Réactivité</strong><small>Intervention rapide en cas de panne</small></div></div>
+            <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>Réactivité</strong><small>Un accompagnement rapide</small></div></div>
             <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Devis gratuit</strong><small>Tarifs clairs, sans surprise</small></div></div>
-            <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-5-5.5"/></svg><div><strong>Équipe certifiée</strong><small>Experts formés aux dernières technologies</small></div></div>
-            <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><div><strong>Interlocuteur unique</strong><small>Un suivi personnalisé</small></div></div>
+            <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-5-5.5"/></svg><div><strong>Approche humaine</strong><small>Un interlocuteur à votre écoute</small></div></div>
+            <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 17l-6.5 4 2-7.5L2 9h7z"/></svg><div><strong>Sur mesure</strong><small>Des solutions adaptées à vous</small></div></div>
           </div>
         </div>
-        <!-- ✏️ Chiffres clés -->
+
         <div class="about__visual reveal">
           <div class="stats">
-            <div class="stat"><strong>5+</strong><span>années d'expérience</span></div>
-            <div class="stat"><strong>120+</strong><span>projets réalisés</span></div>
-            <div class="stat"><strong>50+</strong><span>clients fidèles</span></div>
-            <div class="stat"><strong>7j/7</strong><span>assistance disponible</span></div>
+            <div class="stat"><strong>24h</strong><span>délai de réponse à votre demande</span></div>
+            <div class="stat"><strong>100%</strong><span>des solutions sur mesure</span></div>
+            <div class="stat"><strong>0 FCFA</strong><span>pour votre devis</span></div>
+            <div class="stat"><strong>8h–18h</strong><span>du lundi au vendredi</span></div>
           </div>
         </div>
       </div>
@@ -170,89 +196,73 @@
       </div>
     </section>
 
-    <!-- ================= AVIS CLIENTS ================= -->
-    <!-- ✏️ Remplacez ces exemples par de vrais avis de vos clients -->
-    <section class="section section--soft" id="avis">
+    <!-- ================= ILS NOUS FONT CONFIANCE ================= -->
+    <!-- ✏️ MISE À JOUR : à chaque nouveau client,
+         1) déposez son logo dans le dossier assets/clients/ (ex. assets/clients/nom.png)
+         2) ajoutez une ligne dans la grille ci-dessous :
+            <div class="trust__item"><img src="assets/clients/nom.png" alt="Nom du client"></div>
+         3) supprimez le bloc <div class="trust__empty"> quand vous avez au moins un client. -->
+    <section class="section section--soft" id="confiance">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">Avis clients</span>
+          <span class="eyebrow">Références</span>
           <h2>Ils nous font confiance</h2>
+          <p>Les entreprises et institutions qui nous confient leur informatique.</p>
         </div>
-        <div class="testimonials">
-          <figure class="testimonial reveal">
-            <div class="stars">★★★★★</div>
-            <blockquote>« Exemple d'avis : l'équipe a refait notre site web en quelques semaines. Il est beau, rapide et nous recevons enfin des demandes de clients. »</blockquote>
-            <figcaption class="author"><span class="avatar">A</span><div><strong>Nom du client</strong><small>Gérant, commerce</small></div></figcaption>
-          </figure>
-          <figure class="testimonial reveal">
-            <div class="stars">★★★★★</div>
-            <blockquote>« Exemple d'avis : depuis notre contrat de maintenance, plus aucune panne ne bloque nos équipes. Réactifs et toujours de bon conseil. »</blockquote>
-            <figcaption class="author"><span class="avatar">B</span><div><strong>Nom du client</strong><small>Directrice, PME</small></div></figcaption>
-          </figure>
-          <figure class="testimonial reveal">
-            <div class="stars">★★★★★</div>
-            <blockquote>« Exemple d'avis : installation de notre réseau et migration vers le cloud sans interruption de service. Un vrai partenaire. »</blockquote>
-            <figcaption class="author"><span class="avatar">C</span><div><strong>Nom du client</strong><small>Responsable, association</small></div></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= BANDEAU APPEL À L'ACTION ================= -->
-    <section class="section">
-      <div class="container">
-        <div class="cta reveal">
-          <div>
-            <h2>Un projet ? Une panne ? Une question ?</h2>
-            <p>Obtenez un diagnostic et un devis gratuit sous 24 heures.</p>
+        <div class="trust reveal">
+          <!-- Logos clients ici -->
+          <div class="trust__empty">
+            <strong>Nos premières références arrivent bientôt</strong>
+            Votre entreprise pourrait être la prochaine. <a href="#contact">Demandez votre devis gratuit</a>
           </div>
-          <a href="#contact" class="btn">Contactez-nous</a>
         </div>
       </div>
     </section>
 
     <!-- ================= CONTACT ================= -->
-    <section class="section section--soft" id="contact">
+    <section class="section" id="contact">
       <div class="container contact">
         <div class="contact__info reveal">
           <span class="eyebrow">Contact</span>
-          <h2>Parlons de votre projet</h2>
-          <p>Remplissez le formulaire ou contactez-nous directement. Nous vous répondons rapidement.</p>
-          <!-- ✏️ Vos coordonnées (pensez aussi à js/main.js pour l'e-mail et WhatsApp) -->
+          <h2>Demandez votre devis gratuit</h2>
+          <p>Décrivez-nous votre besoin : notre équipe commerciale vous répond sous 24 heures ouvrées.</p>
           <ul class="info-list">
-            <li><span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><div><small>Téléphone</small><a href="tel:+221000000000">+221 00 000 00 00</a></div></li>
-            <li><span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span><div><small>E-mail</small><a href="mailto:contact@axongroup.sn">contact@axongroup.sn</a></div></li>
-            <li><span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><small>Adresse</small><strong>Dakar, Sénégal</strong></div></li>
-            <li><span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Horaires</small><strong>Lun – Ven : 8h – 18h · Sam : 9h – 13h</strong></div></li>
+            <li><span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><div><small>Téléphone / WhatsApp</small><a href="tel:+221787165952">+221 78 716 59 52</a></div></li>
+            <li><span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span><div><small>E-mail</small><a href="mailto:commercial@axongroupcorp.com">commercial@axongroupcorp.com</a></div></li>
+            <li><span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><small>Adresse</small><strong>Sacré-Cœur 3, Pyrotechnie · Dakar, Sénégal</strong></div></li>
+            <li><span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Horaires</small><strong>Lundi – Vendredi : 8h – 18h</strong></div></li>
           </ul>
         </div>
 
-        <form class="form reveal" id="contact-form">
+        <!-- Les demandes sont envoyées directement à commercial@axongroupcorp.com (service FormSubmit) -->
+        <form class="form reveal" id="contact-form" novalidate>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form__row">
-            <div class="field"><label for="nom">Nom complet *</label><input id="nom" name="nom" required autocomplete="name"></div>
-            <div class="field"><label for="entreprise">Entreprise</label><input id="entreprise" name="entreprise" autocomplete="organization"></div>
+            <div class="field"><label for="nom">Nom complet *</label><input id="nom" name="Nom" required autocomplete="name"></div>
+            <div class="field"><label for="entreprise">Entreprise</label><input id="entreprise" name="Entreprise" autocomplete="organization"></div>
           </div>
           <div class="form__row">
-            <div class="field"><label for="email">E-mail *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
-            <div class="field"><label for="tel">Téléphone</label><input id="tel" name="tel" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="email">E-mail *</label><input id="email" name="Email" type="email" required autocomplete="email"></div>
+            <div class="field"><label for="tel">Téléphone</label><input id="tel" name="Téléphone" type="tel" autocomplete="tel"></div>
           </div>
           <div class="field">
             <label for="service">Service souhaité</label>
-            <select id="service" name="service">
-              <option>Développement web & mobile</option>
-              <option>Infogérance & support</option>
-              <option>Réseaux & infrastructure</option>
+            <select id="service" name="Service">
+              <option>Solutions IT</option>
+              <option>Hardware (vente, location, installation)</option>
+              <option>Développement web et mobile</option>
               <option>Cybersécurité</option>
-              <option>Cloud & messagerie</option>
-              <option>Conseil & formation</option>
+              <option>IA et agents IA</option>
+              <option>Support et conseil</option>
               <option>Autre demande</option>
             </select>
           </div>
-          <div class="field"><label for="message">Votre message *</label><textarea id="message" name="message" required placeholder="Décrivez votre besoin en quelques mots…"></textarea></div>
-          <button type="submit" class="btn btn--primary">Envoyer ma demande
+          <div class="field"><label for="message">Votre message *</label><textarea id="message" name="Message" required placeholder="Décrivez votre besoin en quelques mots…"></textarea></div>
+          <button type="submit" class="btn btn--primary" id="submit-btn">Envoyer ma demande
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           </button>
-          <p class="form__note">Votre demande s'ouvrira dans votre messagerie, prête à être envoyée.</p>
+          <p class="form__status" id="form-status" role="status"></p>
+          <p class="form__note">Réponse sous 24h ouvrées · Devis gratuit et sans engagement</p>
         </form>
       </div>
     </section>
@@ -263,16 +273,21 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <a href="#accueil" class="logo"><img src="assets/favicon.svg" alt="">Axon<span>Group</span></a>
-          <p style="margin-top:16px;max-width:340px">Votre partenaire informatique : développement, infogérance, réseaux, cybersécurité et cloud.</p>
+          <a href="#accueil" class="logo"><img src="assets/favicon.svg" alt="">AXON<span>GROUP</span></a>
+          <p style="margin-top:16px;max-width:340px">Votre partenaire technologique de confiance. Connecter. Développer. Innover.</p>
         </div>
         <div>
           <h4>Services</h4>
-          <ul><li><a href="#services">Développement web</a></li><li><a href="#services">Infogérance</a></li><li><a href="#services">Cybersécurité</a></li><li><a href="#services">Cloud</a></li></ul>
+          <ul><li><a href="#services">Solutions IT</a></li><li><a href="#services">Hardware</a></li><li><a href="#services">Développement</a></li><li><a href="#ia">IA et agents IA</a></li></ul>
         </div>
         <div>
-          <h4>Entreprise</h4>
-          <ul><li><a href="#apropos">À propos</a></li><li><a href="#methode">Notre méthode</a></li><li><a href="#contact">Contact</a></li><li><a href="mentions-legales.html">Mentions légales</a></li></ul>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+221787165952">+221 78 716 59 52</a></li>
+            <li><a href="mailto:commercial@axongroupcorp.com">commercial@axongroupcorp.com</a></li>
+            <li>Sacré-Cœur 3, Pyrotechnie, Dakar</li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer__bottom">

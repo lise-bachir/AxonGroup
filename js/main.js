@@ -1,8 +1,8 @@
 /* ==========================================================================
    ✏️ VOS COORDONNÉES — modifiez seulement ces deux lignes
    ========================================================================== */
-const EMAIL_CONTACT = "contact@axongroup.sn";   // reçoit les demandes du formulaire
-const NUMERO_WHATSAPP = "221000000000";         // format international, sans + ni espaces
+const EMAIL_CONTACT = "commercial@axongroupcorp.com";   // reçoit les demandes de devis
+const NUMERO_WHATSAPP = "221787165952";         // format international, sans + ni espaces
 
 /* ========================================================================== */
 
@@ -51,23 +51,37 @@ if (whatsapp) {
   whatsapp.href = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent("Bonjour Axon Group, je souhaite des informations sur vos services.")}`;
 }
 
-// Formulaire de contact : ouvre la messagerie avec la demande pré-remplie
+// Formulaire de devis : envoyé directement par e-mail à EMAIL_CONTACT (service FormSubmit)
 const form = document.getElementById("contact-form");
 if (form) {
-  form.addEventListener("submit", (event) => {
+  const status = document.getElementById("form-status");
+  const button = document.getElementById("submit-btn");
+  const show = (type, text) => { status.className = `form__status is-${type}`; status.textContent = text; };
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
     const data = new FormData(form);
-    const subject = `Demande de devis — ${data.get("service")}`;
-    const body = [
-      `Nom : ${data.get("nom")}`,
-      `Entreprise : ${data.get("entreprise") || "-"}`,
-      `E-mail : ${data.get("email")}`,
-      `Téléphone : ${data.get("tel") || "-"}`,
-      `Service : ${data.get("service")}`,
-      "",
-      data.get("message"),
-    ].join("\n");
-    window.location.href = `mailto:${EMAIL_CONTACT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (data.get("_honey")) return; // anti-spam
+    data.append("_subject", `Demande de devis — ${data.get("Service")}`);
+    data.append("_template", "table");
+    data.append("_captcha", "false");
+    button.disabled = true;
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${EMAIL_CONTACT}`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+      const result = await response.json();
+      if (!response.ok || String(result.success) === "false") throw new Error(result.message || "echec");
+      form.reset();
+      show("ok", "Merci ! Votre demande a bien été envoyée. Nous vous répondons sous 24h ouvrées.");
+    } catch (error) {
+      show("error", `L'envoi a échoué. Écrivez-nous directement à ${EMAIL_CONTACT} ou appelez le +221 78 716 59 52.`);
+    } finally {
+      button.disabled = false;
+    }
   });
 }
 
