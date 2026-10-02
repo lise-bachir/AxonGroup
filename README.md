@@ -22,3 +22,12 @@ Les endroits à personnaliser sont repérés par le symbole ✏️ dans les fich
 1. Dans Settings → Branches, la branche par défaut est celle du site.
 2. Sur GitHub : **Settings → Pages → Source : GitHub Actions**.
 3. Le site est publié automatiquement à chaque modification.
+
+## Boutique (vente et location)
+La boutique est la page `boutique.html`. Tous les produits sont dans **un seul fichier : `js/products.js`**.
+- **Ajouter un produit** : copiez une ligne `P("catégorie", "Marque", "Modèle", ["caractéristique", …], "VL")` et modifiez-la.
+  `"VL"` = vente et location, `"V"` = vente seule, `"L"` = location seule.
+- **Mettre une photo** : déposez l'image dans `assets/produits/` puis ajoutez son chemin en dernier paramètre,
+  ex. `P("laptops", "HP", "ProBook 450 G10", [...], "VL", "assets/produits/probook-450.jpg")`.
+- **Supprimer un produit** : effacez sa ligne.
+- Aucun prix n'est affiché. Le visiteur compose sa demande (panier), puis elle arrive par e-mail sur commercial@axongroupcorp.com.

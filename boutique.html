@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique informatique — Vente et location | Axon Group</title>
+  <meta name="description" content="Catalogue Axon Group : smartphones, ordinateurs, imprimantes, réseau, vidéosurveillance, contrôle d'accès, câblage. Vente et location, devis gratuit sous 24h.">
+  <link rel="canonical" href="https://axongroupcorp.com/boutique.html">
+  <meta name="theme-color" content="#0a1630">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header is-scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo"><img src="assets/logo-icon.png" alt="Axon Group">AXON<span>GROUP</span></a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#services">Services</a>
+        <a href="boutique.html" aria-current="page">Boutique</a>
+        <a href="index.html#contact">Contact</a>
+        <button type="button" class="btn btn--primary" data-open-cart>Ma demande <span class="count" data-cart-count>0</span></button>
+      </nav>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="shop-hero">
+      <div class="container">
+        <span class="eyebrow">Boutique</span>
+        <h1>Matériel informatique : <span class="gradient-text">vente et location</span></h1>
+        <p>Choisissez vos équipements, ajoutez-les à votre demande, et recevez un devis personnalisé sous 24h. Aucun paiement en ligne.</p>
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input id="search" type="search" placeholder="Rechercher un produit, une marque…" aria-label="Rechercher">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft shop">
+      <div class="container">
+        <div class="chips" id="chips" role="tablist" aria-label="Catégories"></div>
+
+        <div class="toolbar">
+          <strong id="count"></strong>
+          <div class="toolbar__filters">
+            <select id="mode" aria-label="Vente ou location">
+              <option value="all">Vente et location</option>
+              <option value="vente">Vente</option>
+              <option value="location">Location</option>
+            </select>
+            <select id="brand" aria-label="Marque"></select>
+          </div>
+        </div>
+
+        <div class="products" id="grid"></div>
+
+        <div class="trust__empty" id="empty" hidden>
+          <strong>Aucun produit ne correspond à votre recherche</strong>
+          <button type="button" class="btn btn--primary btn--sm" id="reset" style="margin-top:12px">Réinitialiser les filtres</button>
+        </div>
+
+        <p class="shop-note">Les caractéristiques sont indicatives. Les modèles exacts, les configurations et la disponibilité sont confirmés dans votre devis. Vous cherchez un produit absent du catalogue ? <a href="index.html#contact">Contactez-nous</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© <span id="year">2026</span> Axon Group. Tous droits réservés.</span>
+      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="tel:+221787165952">+221 78 716 59 52</a></span>
+    </div>
+  </footer>
+
+  <!-- Bouton flottant : ma demande -->
+  <button type="button" class="cart-fab" data-open-cart aria-label="Ouvrir ma demande de devis">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg>
+    Ma demande <span class="count" data-cart-count>0</span>
+  </button>
+
+  <a class="whatsapp" id="whatsapp" href="#" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.8L0 24l6.4-1.7A11.8 11.8 0 0 0 24 12c0-3.2-1.2-6.1-3.6-8.4z"/></svg>
+  </a>
+
+  <!-- Fiche produit -->
+  <dialog id="detail" class="detail">
+    <button type="button" class="detail__close" data-close-detail aria-label="Fermer">✕</button>
+    <div id="detail-body" class="detail__grid"></div>
+  </dialog>
+
+  <!-- Panneau "Ma demande de devis" -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Ma demande de devis">
+    <div class="drawer__head">
+      <h2>Ma demande de devis</h2>
+      <button type="button" class="drawer__close" data-close-cart aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer__body">
+      <p class="form__status" id="cart-status" role="status"></p>
+      <div id="cart-empty" class="cart-empty">
+        <strong>Votre demande est vide</strong>
+        Parcourez le catalogue et cliquez sur « Ajouter » pour constituer votre devis.
+        <button type="button" class="btn btn--primary btn--sm" data-close-cart>Voir le catalogue</button>
+      </div>
+      <ul class="lines" id="cart-list"></ul>
+
+      <form id="cart-form" novalidate hidden>
+        <h3>Vos coordonnées</h3>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field"><label for="c-nom">Nom complet *</label><input id="c-nom" name="Nom" required autocomplete="name"></div>
+        <div class="field"><label for="c-ent">Entreprise</label><input id="c-ent" name="Entreprise" autocomplete="organization"></div>
+        <div class="form__row">
+          <div class="field"><label for="c-mail">E-mail *</label><input id="c-mail" name="Email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="c-tel">Téléphone</label><input id="c-tel" name="Téléphone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="field" id="rent-field" hidden>
+          <label for="c-duree">Durée de location souhaitée</label>
+          <select id="c-duree" name="Durée de location">
+            <option>À définir ensemble</option><option>Moins d'un mois</option><option>1 à 3 mois</option>
+            <option>3 à 6 mois</option><option>6 à 12 mois</option><option>Plus d'un an</option>
+          </select>
+        </div>
+        <div class="field"><label for="c-msg">Précisions (facultatif)</label><textarea id="c-msg" name="Message" placeholder="Délai, lieu de livraison ou d'installation, besoins particuliers…"></textarea></div>
+        <button type="submit" class="btn btn--primary" id="send">Envoyer ma demande de devis</button>
+        <p class="form__note">Devis gratuit et sans engagement · Réponse sous 24h ouvrées</p>
+      </form>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
