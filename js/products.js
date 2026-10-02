@@ -46,7 +46,6 @@ const PRODUCTS = [
   P("smartphones", "Apple", "iPhone 17", ["Écran Super Retina XDR 6,3\" 120 Hz", "Puce A19", "Double capteur photo 48 Mpx", "5G, eSIM, USB-C"]),
   P("smartphones", "Apple", "iPhone 16", ["Écran Super Retina XDR 6,1\"", "Puce A18", "Double capteur photo 48 Mpx", "5G, USB-C"]),
   P("smartphones", "Samsung", "Galaxy S25 Ultra", ["Écran Dynamic AMOLED 2X 6,9\" 120 Hz", "Snapdragon 8 Elite, 12 Go de RAM", "Capteur principal 200 Mpx, S Pen", "5G, Galaxy AI"]),
-  P("smartphones", "Samsung", "Galaxy S25", ["Écran Dynamic AMOLED 2X 6,2\" 120 Hz", "Snapdragon 8 Elite", "Triple capteur photo 50 Mpx", "5G, Galaxy AI"]),
   P("smartphones", "Samsung", "Galaxy A56 5G", ["Écran Super AMOLED 6,7\" 120 Hz", "Batterie 5 000 mAh", "Triple capteur photo 50 Mpx", "5G"]),
   P("smartphones", "Samsung", "Galaxy A36 5G", ["Écran Super AMOLED 6,7\" 120 Hz", "Batterie 5 000 mAh", "Triple capteur photo 50 Mpx", "5G"]),
   P("smartphones", "Samsung", "Galaxy A16", ["Écran Super AMOLED 6,7\"", "Batterie 5 000 mAh", "Capteur principal 50 Mpx", "Double SIM"]),
@@ -78,7 +77,6 @@ const PRODUCTS = [
   P("gaming", "ASUS", "ROG Zephyrus G14", ["Écran OLED 14\" 120 Hz", "AMD Ryzen AI 9", "NVIDIA GeForce RTX", "Compact et performant"]),
 
   /* ---------- PC fixes et tout-en-un ---------- */
-  P("desktops", "HP", "ProDesk 400 G9 SFF", ["Format compact (SFF)", "Intel Core i5 (12e génération)", "RAM 8 à 16 Go, SSD NVMe", "Windows 11 Pro"]),
   P("desktops", "HP", "All-in-One 24", ["Écran 23,8\" Full HD", "Intel Core i5 / Ryzen 5", "Webcam et haut-parleurs intégrés", "Gain de place sur le bureau"]),
   P("desktops", "Lenovo", "ThinkCentre M70s", ["Format tour compact", "Intel Core i5 / i7", "RAM jusqu'à 64 Go, SSD NVMe", "Gamme professionnelle fiable"]),
   P("desktops", "Lenovo", "ThinkCentre Tiny M70q", ["Mini PC ultra-compact (1 litre)", "Intel Core i5", "Fixation derrière un écran", "Silencieux et économe"]),
@@ -178,7 +176,6 @@ const PRODUCTS = [
   /* ---------- Contrôle d'accès et pointage ---------- */
   P("access", "Hikvision", "DS-K1T341AM (reconnaissance faciale)", ["Terminal facial 4,3\"", "Contrôle d'accès et pointage", "Carte Mifare, mot de passe", "Pour bureaux et entreprises"]),
   P("access", "Hikvision", "DS-K1T671M (terminal facial 7\")", ["Terminal facial écran 7\"", "Contrôle d'accès et pointage", "Reconnaissance rapide", "Pour entrées principales"]),
-  P("access", "Hikvision", "DS-K1T804AMF (empreinte + badge)", ["Terminal à empreinte digitale", "Lecteur de badge Mifare", "Contrôle d'accès et pointage", "Utilisation intérieure et extérieure"]),
   P("access", "Hikvision", "DS-K2604T (contrôleur 4 portes)", ["Contrôleur d'accès 4 portes", "Réseau TCP/IP", "Pour installations multi-portes", "Compatible lecteurs Hikvision"], "V"),
   P("access", "Hikvision", "DS-K1102M (lecteur de badge)", ["Lecteur de cartes Mifare 13,56 MHz", "Étanche, usage extérieur", "Sortie Wiegand / RS-485", "S'ajoute à un contrôleur"], "V"),
 
@@ -197,9 +194,6 @@ const PRODUCTS = [
   P("electrical", "Legrand", "Disjoncteurs modulaires DX³", ["Protection des circuits", "Calibres 10 à 63 A", "Montage sur rail DIN", "Fiabilité reconnue"], "V", "", {"Pôles": ["1P+N", "2P", "3P", "4P"], "Calibre": ["10 A", "16 A", "20 A", "25 A", "32 A", "40 A", "63 A"]}),
   P("electrical", "Schneider Electric", "Acti9 (disjoncteurs et différentiels)", ["Protection des personnes et des circuits", "Calibres au choix", "Montage sur rail DIN", "Gamme professionnelle"], "V", "", {"Type": ["Disjoncteur", "Interrupteur différentiel"], "Pôles": ["1P+N", "2P", "3P", "4P"], "Calibre": ["10 A", "16 A", "20 A", "25 A", "32 A", "40 A", "63 A"], "Sensibilité (différentiel)": ["Sans objet", "30 mA", "300 mA"]}),
   P("electrical", "Legrand", "Coffret électrique", ["Coffret de distribution modulaire", "Capacité selon besoin", "Porte transparente", "Pour locaux professionnels"], "V", "", {"Capacité": ["1 rangée – 13 modules", "1 rangée – 18 modules", "2 rangées – 24 modules", "2 rangées – 36 modules", "3 rangées – 54 modules", "4 rangées – 72 modules"], "Installation": ["Encastré", "Apparent"]}),
-  P("electrical", "APC", "Back-UPS BX1600MI (1 600 VA)", ["Onduleur 1 600 VA", "Protection contre les coupures", "Idéal postes et réseau", "Régulation de tension AVR"]),
-  P("electrical", "APC", "Smart-UPS SMT1500I (1 500 VA)", ["Onduleur line-interactive 1 500 VA", "Écran LCD", "Batterie remplaçable", "Idéal serveurs et réseau"]),
-  P("electrical", "APC", "Essential SurgeArrest (multiprise parafoudre)", ["Multiprise avec parafoudre", "Protège contre les surtensions", "Plusieurs prises", "Pour postes de travail"], "V"),
 ];
 
 /* Photos disponibles : identifiants des produits qui ont une image dans assets/produits/<identifiant>.webp */

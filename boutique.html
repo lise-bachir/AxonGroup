@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boutique informatique — Vente et location | Axon Group</title>
-  <meta name="description" content="Catalogue Axon Group : smartphones, ordinateurs, imprimantes, réseau, vidéosurveillance, contrôle d'accès, câblage. Vente et location, devis gratuit sous 24h.">
+  <title>Boutique informatique — Vente, gros et location | Axon Group</title>
+  <meta name="description" content="Catalogue Axon Group : smartphones, ordinateurs, imprimantes, réseau, vidéosurveillance, contrôle d'accès, câblage. Vente au détail et en gros, location, devis gratuit sous 24h.">
   <link rel="canonical" href="https://axongroupcorp.com/boutique.html">
   <meta name="theme-color" content="#0a1630">
   <link rel="icon" href="assets/favicon.png" type="image/png">
@@ -35,8 +35,9 @@
     <section class="shop-hero">
       <div class="container">
         <span class="eyebrow">Boutique</span>
-        <h1>Matériel informatique : <span class="gradient-text">vente et location</span></h1>
+        <h1>Matériel informatique : <span class="gradient-text">vente, gros et location</span></h1>
         <p>Choisissez vos équipements, ajoutez-les à votre demande, et recevez un devis personnalisé sous 24h. Aucun paiement en ligne.</p>
+        <p class="wholesale"><strong>Vente en gros disponible</strong> pour les revendeurs, entreprises et institutions. Indiquez vos quantités dans votre demande et recevez une offre adaptée.</p>
         <div class="search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
           <input id="search" type="search" placeholder="Rechercher un produit, une marque…" aria-label="Rechercher">
@@ -52,8 +53,8 @@
           <strong id="count"></strong>
           <div class="toolbar__filters">
             <select id="mode" aria-label="Vente ou location">
-              <option value="all">Vente et location</option>
-              <option value="vente">Vente</option>
+              <option value="all">Vente, gros et location</option>
+              <option value="vente">Vente (détail et gros)</option>
               <option value="location">Location</option>
             </select>
             <select id="brand" aria-label="Marque"></select>
@@ -127,6 +128,7 @@
             <option>3 à 6 mois</option><option>6 à 12 mois</option><option>Plus d'un an</option>
           </select>
         </div>
+        <label class="check"><input type="checkbox" name="Vente en gros" value="Oui"> Je souhaite une offre de gros (grandes quantités, revendeur)</label>
         <div class="field"><label for="c-msg">Précisions (facultatif)</label><textarea id="c-msg" name="Message" placeholder="Délai, lieu de livraison ou d'installation, besoins particuliers…"></textarea></div>
         <button type="submit" class="btn btn--primary" id="send">Envoyer ma demande de devis</button>
         <p class="form__note">Devis gratuit et sans engagement · Réponse sous 24h ouvrées</p>
