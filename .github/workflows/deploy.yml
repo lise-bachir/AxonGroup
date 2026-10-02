@@ -1,9 +1,9 @@
-# Publie automatiquement le site sur GitHub Pages à chaque modification de la branche main.
+# Publie automatiquement le site sur GitHub Pages à chaque modification de la branche principale.
 name: Publier le site
 
 on:
   push:
-    branches: [main]
+    branches: [claude/site-vitrine-redesign-3t4da9, main]
   workflow_dispatch:
 
 permissions:

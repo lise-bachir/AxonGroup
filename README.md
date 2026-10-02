@@ -18,6 +18,6 @@ Les endroits à personnaliser sont repérés par le symbole ✏️ dans les fich
 | Logo | `assets/favicon.svg` (remplaçable par votre propre logo) |
 
 ## Mettre le site en ligne gratuitement (une seule fois)
-1. Fusionnez ce travail dans la branche `main`.
+1. Dans Settings → Branches, la branche par défaut est celle du site.
 2. Sur GitHub : **Settings → Pages → Source : GitHub Actions**.
 3. Le site est publié automatiquement à chaque modification.
