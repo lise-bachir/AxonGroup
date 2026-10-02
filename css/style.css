@@ -356,3 +356,6 @@ ul.hero__tags { padding: 0; margin-bottom: 0; }
 .hp { position: absolute; left: -9999px; }
 
 @media (max-width: 1000px) { .ai { grid-template-columns: 1fr; } }
+
+/* ---------- Logo officiel sur pastille blanche ---------- */
+.logo img { background: #fff; border-radius: 10px; padding: 5px 6px; width: 42px; height: 42px; object-fit: contain; }

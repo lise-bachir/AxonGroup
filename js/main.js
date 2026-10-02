@@ -73,12 +73,20 @@ if (form) {
         headers: { Accept: "application/json" },
         body: data,
       });
-      const result = await response.json();
-      if (!response.ok || String(result.success) === "false") throw new Error(result.message || "echec");
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || String(result.success) === "false") {
+        console.error("FormSubmit :", response.status, result);
+        throw new Error(result.message || `Erreur ${response.status}`);
+      }
       form.reset();
       show("ok", "Merci ! Votre demande a bien été envoyée. Nous vous répondons sous 24h ouvrées.");
     } catch (error) {
-      show("error", `L'envoi a échoué. Écrivez-nous directement à ${EMAIL_CONTACT} ou appelez le +221 78 716 59 52.`);
+      console.error(error);
+      // Solution de secours : on ouvre la messagerie avec la demande déjà rédigée, rien n'est perdu
+      const body = [...data.entries()].filter(([k]) => !k.startsWith("_")).map(([k, v]) => `${k} : ${v || "-"}`).join("\n");
+      const mailto = `mailto:${EMAIL_CONTACT}?subject=${encodeURIComponent("Demande de devis — " + data.get("Service"))}&body=${encodeURIComponent(body)}`;
+      status.className = "form__status is-error";
+      status.innerHTML = `L'envoi automatique a échoué. <a href="${mailto}"><strong>Cliquez ici pour envoyer votre demande par e-mail</strong></a>, ou appelez le +221 78 716 59 52.`;
     } finally {
       button.disabled = false;
     }
