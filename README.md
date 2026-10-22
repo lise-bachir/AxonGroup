@@ -34,3 +34,8 @@ La boutique est la page `boutique.html`. Tous les produits sont dans **un seul f
   ex. `P("cables", "Belkin", "Câble HDMI", [...], "V", "", { "Longueur": ["1 m", "2 m", "3 m"] })`.
 - **Supprimer un produit** : effacez sa ligne.
 - Aucun prix n'est affiché. Le visiteur compose sa demande (panier), puis elle arrive par e-mail sur commercial@axongroupcorp.com.
+
+## Technologies maîtrisées (page d'accueil)
+La section « Technologies » est dans `index.html` (repère : `id="technologies"`). Les logos sont dans `assets/tech/`.
+Pour une technologie sans logo (pastille avec initiales), déposez le logo officiel (SVG ou PNG) dans `assets/tech/`
+puis remplacez la pastille par `<div class="tech"><img src="assets/tech/nom.svg" alt="" width="28" height="28"><span>Nom</span></div>`.
