@@ -509,3 +509,7 @@ body.no-scroll { overflow: hidden; }
 .tech img[src$="zabbix.png"] { height: 34px; max-width: 60px; border-radius: 4px; }
 .tech img[src$="wazuh.png"] { height: 32px; max-width: 32px; }
 .tech--tall img { height: 42px; max-width: 130px; }
+
+/* « … et bien plus encore » */
+.tech--more { background: transparent; border: 1.5px dashed #b9c6e6; color: var(--primary); font-style: italic; font-weight: 600; }
+.tech--more:hover { transform: none; box-shadow: none; border-color: #b9c6e6; }
