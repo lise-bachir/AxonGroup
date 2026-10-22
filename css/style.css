@@ -504,3 +504,8 @@ body.no-scroll { overflow: hidden; }
 
 /* Logos : hauteur fixe, largeur automatique (les logos en forme de mot restent lisibles) */
 .tech img { width: auto; height: 28px; max-width: 92px; }
+
+/* Logos fournis (PNG) */
+.tech img[src$="zabbix.png"] { height: 34px; max-width: 60px; border-radius: 4px; }
+.tech img[src$="wazuh.png"] { height: 32px; max-width: 32px; }
+.tech--tall img { height: 42px; max-width: 130px; }
